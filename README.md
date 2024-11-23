@@ -34,7 +34,7 @@ Why some badges update slowly: https://github.com/pujux/badge-it/issues/78
 
 ## Introduction
 
-One of the things many find sorely lacking in the Bioware / Beamdog NPCs are the more complex relationships presented by modern NPC mods&mdash;especially in regards to "friendships", the relationships NPCs have with the PC when not romancing them.
+One of the things many find sorely lacking in the BioWare/Beamdog NPCs is the availability of more complex relationships presented by modern NPC mods&mdash;especially in regard to "friendships", i.e. the relationships NPCs have with the PC when not romancing them.
 
 This mod adds a series of dialogues with Jaheira.
 
