@@ -1,0 +1,35 @@
+BACKUP ~JaheiraFriendship/backup~
+AUTHOR ~Lava Del'Vortel~
+VERSION ~v1.0~
+README ~JaheiraFriendship/JaheiraFriendship-readme-%LANGUAGE%.html~ ~JaheiraFriendship/JaheiraFriendship-readme-english.html~
+
+AUTO_TRA ~JaheiraFriendship/translations/%s~
+
+LANGUAGE ~English~
+         ~English~
+         ~JaheiraFriendship/translations/english/setup.tra~
+
+BEGIN @1
+DESIGNATED 0 LABEL ~jaheira_friendship~
+
+/* CamDawg's custom IsValidForPartyDialogue() state. Thanks Cam! covers STATE_CONFUSED, STATE_FEEBLEMINDED, STATE_SILENCED, STATE_DEAD, STATE_ACID_DEATH, STATE_FLAME_DEATH, STATE_EXPLODING_DEATH, STATE_STONE_DEATH, STATE_FROZEN_DEATH, STATE_HELPLESS, STATE_STUNNED, STATE_PANIC, STATE_BERSERK, STATE_SLEEPING */
+   
+APPEND ~STATE.IDS~ ~0x80101FEF CD_STATE_NOTVALID~ UNLESS ~CD_STATE_NOTVALID~
+
+// Minor SoA fix
+
+COPY_EXISTING ~jaheira.bcs~ ~override~
+  DECOMPILE_AND_PATCH BEGIN
+    REPLACE_TEXTUALLY ~RealSetGlobalTimer("JaheiraRomance","GLOBAL",FIVE_DAYS)~ ~RealSetGlobalTimer("JaheiraRomance","GLOBAL",3600)~ 
+END
+BUT_ONLY
+
+// Compiling dialogue & scripts SOA
+COMPILE ~JaheiraFriendship/dialogue/jaheiraj.d~
+EXTEND_TOP ~jaheira.bcs~  ~JaheiraFriendship/scripts/jaheira.baf~
+EXTEND_TOP ~jaheirad.bcs~ ~JaheiraFriendship/scripts/jaheirad.baf~
+EXTEND_TOP ~AR0300.bcs~   ~JaheiraFriendship/scripts/AR0300.baf~
+
+// Compiling dialogue & scripts TOB
+COMPILE ~JaheiraFriendship/dialogue/jahei25j.d~
+EXTEND_TOP ~jahe25.bcs~ ~JaheiraFriendship/scripts/jahe25.baf~

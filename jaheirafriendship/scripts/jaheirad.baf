@@ -1,0 +1,33 @@
+IF
+  InParty(Myself)
+	OR(2)
+		Global("L#JaheiraFriendshipActive","GLOBAL",1)
+		Global("L#JaheiraFriendshipActive","GLOBAL",2)
+	IfValidForPartyDialog(Player1)
+	IfValidForPartyDialog(Myself)
+	CombatCounter(0)
+	!See([ENEMY])
+	!AreaType(DUNGEON)
+	RealGlobalTimerExpired("L#JaheiraFriendTimer","GLOBAL")
+	Global("L#JaheiraFriendTalk","GLOBAL",16)
+THEN
+	RESPONSE #100
+	  IncrementGlobal("L#JaheiraFriendTalk","GLOBAL",1)
+END
+
+IF
+  InParty(Myself)
+	OR(2)
+		Global("L#JaheiraFriendshipActive","GLOBAL",1)
+		Global("L#JaheiraFriendshipActive","GLOBAL",2)
+	IfValidForPartyDialog(Player1)
+	IfValidForPartyDialog(Myself)
+	CombatCounter(0)
+	!See([ENEMY])
+	!AreaType(DUNGEON)
+	RealGlobalTimerExpired("L#JaheiraFriendTimer","GLOBAL")
+	Global("L#JaheiraFriendTalk","GLOBAL",19)
+THEN
+	RESPONSE #100
+	  IncrementGlobal("L#JaheiraFriendTalk","GLOBAL",1)
+END

@@ -1,0 +1,620 @@
+///////////////////////////////////////////////
+////////////// FRIENDSHIP MATCH ///////////////
+///////////////////////////////////////////////
+
+IF
+Global("LoveTalk","LOCALS",9)
+Global("JaheiraMatch","GLOBAL",0)
+Global("L#JaheiraFriendshipActive","GLOBAL",0)
+THEN
+RESPONSE #100
+RealSetGlobalTimer("L#JaheiraFriendTimer","GLOBAL",3900)
+SetGlobal("L#JaheiraFriendshipActive","GLOBAL",1)
+SetGlobal("L#JaheiraFriendTalk","GLOBAL",1)
+END
+
+//SKIP 0
+
+IF
+Global("JaheiraMatch","GLOBAL",1)
+Global("JaheiraRomanceActive","GLOBAL",3)
+Global("L#JaheiraFriendshipActive","GLOBAL",0)
+OR(8)
+ Global("LoveTalk","LOCALS",2)
+ Global("LoveTalk","LOCALS",3)
+ Global("LoveTalk","LOCALS",4)
+ Global("LoveTalk","LOCALS",5)
+ Global("LoveTalk","LOCALS",6)
+ Global("LoveTalk","LOCALS",7)
+ Global("LoveTalk","LOCALS",8)
+ Global("LoveTalk","LOCALS",9)
+THEN
+RESPONSE #100
+RealSetGlobalTimer("L#JaheiraFriendTimer","GLOBAL",3900)
+SetGlobal("L#JaheiraFriendshipActive","GLOBAL",1)
+SetGlobal("L#JaheiraFriendTalk","GLOBAL",1)
+END
+
+//SKIP 1
+
+IF
+Global("JaheiraMatch","GLOBAL",1)
+Global("JaheiraRomanceActive","GLOBAL",3)
+Global("L#JaheiraFriendshipActive","GLOBAL",0)
+OR(2)
+ Global("LoveTalk","LOCALS",10)
+ Global("LoveTalk","LOCALS",11)
+THEN
+RESPONSE #100
+RealSetGlobalTimer("L#JaheiraFriendTimer","GLOBAL",3900)
+SetGlobal("L#JaheiraFriendshipActive","GLOBAL",1)
+SetGlobal("L#JaheiraFriendTalk","GLOBAL",3)
+END
+
+//SKIP 2
+
+IF
+Global("JaheiraMatch","GLOBAL",1)
+Global("JaheiraRomanceActive","GLOBAL",3)
+Global("L#JaheiraFriendshipActive","GLOBAL",0)
+GlobalGT("LoveTalk","LOCALS",11)
+GlobalLT("LoveTalk","LOCALS",18)
+THEN
+RESPONSE #100
+RealSetGlobalTimer("L#JaheiraFriendTimer","GLOBAL",3900)
+SetGlobal("L#JaheiraFriendshipActive","GLOBAL",1)
+SetGlobal("L#JaheiraFriendTalk","GLOBAL",6)
+END
+
+///////////////////////////////////////////////
+////////////// THE TIMERED TALKS //////////////
+///////////////////////////////////////////////
+
+IF
+  InParty(Myself)
+	OR(2)
+		Global("L#JaheiraFriendshipActive","GLOBAL",1)
+		Global("L#JaheiraFriendshipActive","GLOBAL",2)
+	IfValidForPartyDialog(Player1)
+	IfValidForPartyDialog(Myself)
+	CombatCounter(0)
+	!See([ENEMY])
+	AreaType(DUNGEON)
+	RealGlobalTimerExpired("L#JaheiraFriendTimer","GLOBAL")
+	Global("L#JaheiraFriendItWasDungeon","GLOBAL",0)
+	OR(6)
+		Global("L#JaheiraFriendTalk","GLOBAL",1)
+		Global("L#JaheiraFriendTalk","GLOBAL",4)
+		Global("L#JaheiraFriendTalk","GLOBAL",7)
+		Global("L#JaheiraFriendTalk","GLOBAL",10)
+		Global("L#JaheiraFriendTalk","GLOBAL",13)
+		Global("L#JaheiraFriendTalk","GLOBAL",22)
+THEN
+	RESPONSE #100
+	  SetGlobal("L#JaheiraFriendItWasDungeon","GLOBAL",1)
+END
+
+IF
+  InParty(Myself)
+	OR(2)
+		Global("L#JaheiraFriendshipActive","GLOBAL",1)
+		Global("L#JaheiraFriendshipActive","GLOBAL",2)
+	IfValidForPartyDialog(Player1)
+	IfValidForPartyDialog(Myself)
+	CombatCounter(0)
+	!See([ENEMY])
+	!AreaType(DUNGEON)
+	RealGlobalTimerExpired("L#JaheiraFriendTimer","GLOBAL")
+	Global("L#JaheiraFriendItWasDungeon","GLOBAL",1)
+	OR(6)
+		Global("L#JaheiraFriendTalk","GLOBAL",1)
+		Global("L#JaheiraFriendTalk","GLOBAL",4)
+		Global("L#JaheiraFriendTalk","GLOBAL",7)
+		Global("L#JaheiraFriendTalk","GLOBAL",10)
+		Global("L#JaheiraFriendTalk","GLOBAL",13)
+		Global("L#JaheiraFriendTalk","GLOBAL",22)
+THEN
+	RESPONSE #100
+	  RealSetGlobalTimer("L#JaheiraFriendTimer","GLOBAL",60)
+	  SetGlobal("L#JaheiraFriendItWasDungeon","GLOBAL",0)
+END
+
+IF
+  InParty(Myself)
+	OR(2)
+		Global("L#JaheiraFriendshipActive","GLOBAL",1)
+		Global("L#JaheiraFriendshipActive","GLOBAL",2)
+	IfValidForPartyDialog(Player1)
+	IfValidForPartyDialog(Myself)
+	CombatCounter(0)
+	!See([ENEMY])
+	!AreaType(DUNGEON)
+	!AreaCheck("AR2600")
+	RealGlobalTimerExpired("L#JaheiraFriendTimer","GLOBAL")
+	OR(6)
+		Global("L#JaheiraFriendTalk","GLOBAL",1)
+		Global("L#JaheiraFriendTalk","GLOBAL",4)
+		Global("L#JaheiraFriendTalk","GLOBAL",7)
+		Global("L#JaheiraFriendTalk","GLOBAL",10)
+		Global("L#JaheiraFriendTalk","GLOBAL",13)
+		Global("L#JaheiraFriendTalk","GLOBAL",22)
+THEN
+	RESPONSE #100
+	  IncrementGlobal("L#JaheiraFriendTalk","GLOBAL",1)
+END
+
+
+IF
+  InParty(Myself)
+	OR(2)
+		Global("L#JaheiraFriendshipActive","GLOBAL",1)
+		Global("L#JaheiraFriendshipActive","GLOBAL",2)
+	IfValidForPartyDialog(Player1)
+	IfValidForPartyDialog(Myself)
+	CombatCounter(0)
+	!See([ENEMY])
+	See(Player1)
+	!AreaType(DUNGEON)
+	OR(8)
+		Global("L#JaheiraFriendTalk","GLOBAL",2)
+		Global("L#JaheiraFriendTalk","GLOBAL",5)
+		Global("L#JaheiraFriendTalk","GLOBAL",8)
+		Global("L#JaheiraFriendTalk","GLOBAL",11)
+		Global("L#JaheiraFriendTalk","GLOBAL",14)
+		Global("L#JaheiraFriendTalk","GLOBAL",17)
+		Global("L#JaheiraFriendTalk","GLOBAL",20)
+		Global("L#JaheiraFriendTalk","GLOBAL",23)
+THEN
+	RESPONSE #100
+	  MoveToObject(Player1)
+		StartDialogueNoSet(Player1)
+END
+
+
+IF
+  InParty(Myself)
+	OR(2)
+		Global("L#JaheiraFriendshipActive","GLOBAL",1)
+		Global("L#JaheiraFriendshipActive","GLOBAL",2)
+	IfValidForPartyDialog(Player1)
+	IfValidForPartyDialog(Myself)
+	CombatCounter(0)
+	!See([ENEMY])
+	!AreaType(DUNGEON)
+	OR(7)
+		Global("L#JaheiraFriendTalk","GLOBAL",3)
+		Global("L#JaheiraFriendTalk","GLOBAL",6)
+		Global("L#JaheiraFriendTalk","GLOBAL",9)
+		Global("L#JaheiraFriendTalk","GLOBAL",12)
+		Global("L#JaheiraFriendTalk","GLOBAL",15)
+		Global("L#JaheiraFriendTalk","GLOBAL",18)
+		Global("L#JaheiraFriendTalk","GLOBAL",21)
+THEN
+	RESPONSE #100
+	  RealSetGlobalTimer("L#JaheiraFriendTimer","GLOBAL",3900)
+	  IncrementGlobal("L#JaheiraFriendTalk","GLOBAL",1)
+END
+
+///////////////////////////////////////////////
+////////////// THE SCENERY TALKS //////////////
+///////////////////////////////////////////////
+
+//ADVENTURER'S MART
+
+IF
+  InParty(Myself)
+	IfValidForPartyDialog(Player1)
+	IfValidForPartyDialog(Myself)
+	CombatCounter(0)
+	!See([ENEMY])
+	See(Player1)
+	AreaCheck("AR0702")
+	!Global("L#JaheiraFriendshipActive","GLOBAL",3)
+	Global("L#JaheiraFriendAdvenM","GLOBAL",0)
+THEN
+	RESPONSE #100
+	  SetGlobal("L#JaheiraFriendAdvenM","GLOBAL",1)
+END
+
+IF
+	Global("L#JaheiraFriendAdvenM","GLOBAL",1)
+THEN
+	RESPONSE #100
+	  MoveToObject(Player1)
+		StartDialogueNoSet(Player1)
+END
+
+//FIRKRAAG GONE AND PC IS ON THE UPPER LEVEL
+
+IF
+  InParty(Myself)
+	IfValidForPartyDialog(Player1)
+	IfValidForPartyDialog(Myself)
+	CombatCounter(0)
+	!See([ENEMY])
+	See(Player1)
+	AreaCheck("AR1202")
+	Dead("firkra02")
+	!Global("L#JaheiraFriendshipActive","GLOBAL",3)
+	Global("L#JaheiraFriendFirk","GLOBAL",0)
+THEN
+	RESPONSE #100
+	  SetGlobal("L#JaheiraFriendFirk","GLOBAL",1)
+END
+
+IF
+	Global("L#JaheiraFriendFirk","GLOBAL",1)
+THEN
+	RESPONSE #100
+	  MoveToObject(Player1)
+		StartDialogueNoSet(Player1)
+END
+
+//SHADOW THIEVES
+
+IF
+  InParty(Myself)
+	IfValidForPartyDialog(Player1)
+	IfValidForPartyDialog(Myself)
+	CombatCounter(0)
+	!See([ENEMY])
+	See(Player1)
+	OR(6)
+	 AreaCheck("AR0301")
+	 AreaCheck("AR0303")
+	 AreaCheck("AR0304")
+	 AreaCheck("AR0305")
+	 AreaCheck("AR0306")
+	 AreaCheck("AR0307")
+	!Global("L#JaheiraFriendshipActive","GLOBAL",3)
+	Global("L#JaheiraFriendShadT","GLOBAL",0)
+THEN
+	RESPONSE #100
+	  SetGlobal("L#JaheiraFriendShadT","GLOBAL",1)
+END
+
+IF
+	Global("L#JaheiraFriendShadT","GLOBAL",1)
+THEN
+	RESPONSE #100
+	  MoveToObject(Player1)
+		StartDialogueNoSet(Player1)
+END
+
+//BELM
+
+IF
+  InParty(Myself)
+	IfValidForPartyDialog(Player1)
+	IfValidForPartyDialog(Myself)
+	CombatCounter(0)
+	!See([ENEMY])
+	See(Player1)
+	AreaCheck("AR1905")
+	PartyHasItem("SW1H30")
+	!Global("L#JaheiraFriendshipActive","GLOBAL",3)
+	Global("L#JaheiraFriendBelm","GLOBAL",0)
+THEN
+	RESPONSE #100
+	  SetGlobal("L#JaheiraFriendBelm","GLOBAL",1)
+END
+
+IF
+	Global("L#JaheiraFriendBelm","GLOBAL",1)
+THEN
+	RESPONSE #100
+	  MoveToObject(Player1)
+		StartDialogueNoSet(Player1)
+END
+
+//PC IS A DRUID [OH6200, AR1900, AR1300, AR1304, AR1101, AR1102]
+
+IF
+  InParty(Myself)
+	IfValidForPartyDialog(Player1)
+	IfValidForPartyDialog(Myself)
+	CombatCounter(0)
+	!See([ENEMY])
+	See(Player1)
+	Class(Player1,DRUID_ALL)
+	OR(6)
+    AreaCheck("OH6200")
+    AreaCheck("AR1900")
+    AreaCheck("AR1300")
+    AreaCheck("AR1304")
+    AreaCheck("AR1101")
+    AreaCheck("AR1102")
+	!Global("L#JaheiraFriendshipActive","GLOBAL",3)
+	Global("L#JaheiraFriendDruid","GLOBAL",0)
+THEN
+	RESPONSE #100
+	  SetGlobal("L#JaheiraFriendDruid","GLOBAL",1)
+END
+
+IF
+	Global("L#JaheiraFriendDruid","GLOBAL",1)
+THEN
+	RESPONSE #100
+	  MoveToObject(Player1)
+		StartDialogueNoSet(Player1)
+END
+
+//DRUNK
+
+IF
+Global("L#JaheiraDrunk_F","GLOBAL",0)
+InParty(Myself)
+!StateCheck("JAHEIRA",CD_STATE_NOTVALID)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+CheckStatGT("JAHEIRA",30,INTOXICATION)
+OR(2)
+Global("L#JaheiraFriendshipActive","GLOBAL",1)
+Global("L#JaheiraFriendshipActive","GLOBAL",2)
+OR(16)
+AreaCheck("AR0021")
+AreaCheck("AR0313")
+AreaCheck("AR0314")
+AreaCheck("AR0406")
+AreaCheck("AR0509")
+AreaCheck("AR0513")
+AreaCheck("AR0514")
+AreaCheck("AR0515")
+AreaCheck("AR0522")
+AreaCheck("AR0704")
+AreaCheck("AR0709")
+AreaCheck("AR0712")
+AreaCheck("AR1105")
+AreaCheck("AR2010")
+AreaCheck("l#nd07")
+AreaCheck("L#ni05")
+See(Player1)
+CombatCounter(0)
+!See([ENEMY])
+THEN
+RESPONSE #100
+SetGlobal("L#JaheiraDrunk_F","GLOBAL",1)
+END
+
+IF
+Global("L#JaheiraDrunk_F","GLOBAL",1)
+THEN
+RESPONSE #100
+StartDialogueNoSet(Player1)
+END
+
+//RENFELD PICKED
+
+IF
+  InParty(Myself)
+	IfValidForPartyDialog(Player1)
+	IfValidForPartyDialog(Myself)
+	PartyHasItem("MISC5F")
+	AreaCheck("AR0045")
+	Global("L#JaheiraFCommentR","GLOBAL",0)
+THEN
+RESPONSE #100
+ SetGlobal("L#JaheiraFCommentR","GLOBAL",1)
+END
+
+IF
+Global("L#JaheiraFCommentR","GLOBAL",1)
+THEN
+RESPONSE #100
+StartDialogueNoSet(Player1)
+END
+
+//RENFELD RETURNED
+
+IF
+  InParty(Myself)
+	IfValidForPartyDialog(Player1)
+	IfValidForPartyDialog(Myself)
+	!PartyHasItem("MISC5F")
+	AreaCheck("AR0300")
+	Global("L#JaheiraFCommentR","GLOBAL",2)
+	Global("L#JaheiraReactionRenfeldCh","GLOBAL",1)
+	GlobalTimerNotExpired("L#JaheiraReactionRenfeldTime","GLOBAL")
+THEN
+RESPONSE #100
+SetGlobal("L#JaheiraFCommentR","GLOBAL",3)
+END
+
+IF
+Global("L#JaheiraFCommentR","GLOBAL",3)
+THEN
+RESPONSE #100
+StartDialogueNoSet(Player1)
+END
+
+//DEAD GALVAREY
+
+IF
+  InParty(Myself)
+	IfValidForPartyDialog(Player1)
+	IfValidForPartyDialog(Myself)
+	AreaCheck("AR0308")
+	!See([ENEMY])
+	Global("L#JaheiraFCommentR","GLOBAL",4)
+	Dead("GALVAREY")
+	Dead("JAGA1")
+	Dead("JAGA2")
+	Dead("JAGA3")
+	Dead("JAGA4")
+THEN
+RESPONSE #100
+ SetGlobal("L#JaheiraFCommentR","GLOBAL",5)
+END
+
+IF
+Global("L#JaheiraFCommentR","GLOBAL",5)
+THEN
+RESPONSE #100
+StartDialogueNoSet(Player1)
+END
+
+//WE SHOULD OBSERVE IMOEN
+
+IF
+  InParty(Myself)
+	IfValidForPartyDialog(Player1)
+	IfValidForPartyDialog(Myself)
+	CombatCounter(0)
+	!See([ENEMY])
+	See(Player1)
+	InParty("IMOEN2")
+  AreaCheck("AR1512")
+	Global("L#JaheiraFriendImoen","GLOBAL",0)
+THEN
+	RESPONSE #100
+	  RealSetGlobalTimer("L#JaheiraFriendImoenT","GLOBAL",300)
+	  SetGlobal("L#JaheiraFriendImoen","GLOBAL",1)
+END
+
+IF
+  InParty(Myself)
+	IfValidForPartyDialog(Player1)
+	IfValidForPartyDialog(Myself)
+	CombatCounter(0)
+	!See([ENEMY])
+	See(Player1)
+	InParty("IMOEN2")
+	RealGlobalTimerExpired("L#JaheiraFriendImoenT","GLOBAL")
+	Global("L#JaheiraFriendImoen","GLOBAL",1)
+THEN
+	RESPONSE #100
+	  SetGlobal("L#JaheiraFriendImoen","GLOBAL",2)
+END
+
+IF
+	Global("L#JaheiraFriendImoen","GLOBAL",2)
+THEN
+	RESPONSE #100
+	  MoveToObject(Player1)
+		StartDialogueNoSet(Player1)
+END
+
+//UNDERDARK
+
+IF
+  InParty(Myself)
+	IfValidForPartyDialog(Player1)
+	IfValidForPartyDialog(Myself)
+	CombatCounter(0)
+	!See([ENEMY])
+	See(Player1)
+  AreaCheck("AR2100")
+	Global("L#JaheiraFriendUD1Talk","GLOBAL",0)
+THEN
+	RESPONSE #100
+	  RealSetGlobalTimer("L#JaheiraFriendUD1","GLOBAL",120)
+	  SetGlobal("L#JaheiraFriendUD1Talk","GLOBAL",1)
+END
+
+IF
+  InParty(Myself)
+	IfValidForPartyDialog(Player1)
+	IfValidForPartyDialog(Myself)
+	CombatCounter(0)
+	!See([ENEMY])
+	See(Player1)
+	InParty("IMOEN2")
+	RealGlobalTimerExpired("L#JaheiraFriendUD1","GLOBAL")
+	Global("L#JaheiraFriendUD1Talk","GLOBAL",1)
+THEN
+	RESPONSE #100
+	  SetGlobal("L#JaheiraFriendUD1Talk","GLOBAL",2)
+END
+
+IF
+	Global("L#JaheiraFriendUD1Talk","GLOBAL",2)
+THEN
+	RESPONSE #100
+	  MoveToObject(Player1)
+		StartDialogueNoSet(Player1)
+END
+
+//UST NATHA TEMPLE
+
+IF
+  InParty(Myself)
+	IfValidForPartyDialog(Player1)
+	IfValidForPartyDialog(Myself)
+	CombatCounter(0)
+	!See([ENEMY])
+	See(Player1)
+	AreaCheck("AR2201")
+	!Global("L#JaheiraFriendshipActive","GLOBAL",3)
+	Global("L#JaheiraFriendUNT","GLOBAL",0)
+THEN
+	RESPONSE #100
+	  SetGlobal("L#JaheiraFriendUNT","GLOBAL",1)
+END
+
+IF
+	Global("L#JaheiraFriendUNT","GLOBAL",1)
+THEN
+	RESPONSE #100
+	  MoveToObject(Player1)
+		StartDialogueNoSet(Player1)
+END
+
+//FOREST OF TETHIR
+
+IF
+  InParty(Myself)
+	IfValidForPartyDialog(Player1)
+	IfValidForPartyDialog(Myself)
+	CombatCounter(0)
+	!See([ENEMY])
+	See(Player1)
+	AreaCheck("AR2600")
+	!Global("L#JaheiraFriendshipActive","GLOBAL",3)
+	Global("L#JaheiraFriendFoT","GLOBAL",0)
+THEN
+	RESPONSE #100
+	  SetGlobal("L#JaheiraFriendFoT","GLOBAL",1)
+END
+
+IF
+	Global("L#JaheiraFriendFoT","GLOBAL",1)
+THEN
+	RESPONSE #100
+	  MoveToObject(Player1)
+		StartDialogueNoSet(Player1)
+END
+
+IF
+Global("L#JaheiraFriendFoT","GLOBAL",2)
+OR(3)
+ Global("L#JaheiraFriendTalk","GLOBAL",3)
+ Global("L#JaheiraFriendTalk","GLOBAL",4)
+ Global("L#JaheiraFriendTalk","GLOBAL",5)
+THEN
+RESPONSE #100
+SetGlobal("L#JaheiraFriendTalk","GLOBAL",6)
+END
+
+//BODHI DEAD
+
+IF
+  InParty(Myself)
+	IfValidForPartyDialog(Player1)
+	IfValidForPartyDialog(Myself)
+	CombatCounter(0)
+	!See([ENEMY])
+	See(Player1)
+	Global("BodhiDead","GLOBAL",1)
+	AreaCheck("AR0808")
+	Global("L#JaheiraFriendBodhi","GLOBAL",0)
+THEN
+	RESPONSE #100
+	  SetGlobal("L#JaheiraFriendBodhi","GLOBAL",1)
+END
+
+IF
+	Global("L#JaheiraFriendBodhi","GLOBAL",1)
+THEN
+	RESPONSE #100
+	  MoveToObject(Player1)
+		StartDialogueNoSet(Player1)
+END

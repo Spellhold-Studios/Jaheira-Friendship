@@ -1,0 +1,225 @@
+///////////////////////////////////////////////
+////////////// FRIENDSHIP MATCH ///////////////
+///////////////////////////////////////////////
+
+IF
+Global("JaheiraMatch","GLOBAL",0)
+!Global("L#JaheiraFriendshipActive","GLOBAL",3)
+!Global("JaheiraRomanceActive","GLOBAL",1)
+!Global("JaheiraRomanceActive","GLOBAL",2)
+OR(3)
+ Global("L#JaheiraFriendshipActive","GLOBAL",0)
+ Global("L#JaheiraFriendshipActive","GLOBAL",1)
+ Global("L#JaheiraFriendshipActive","GLOBAL",2)
+Global("L#JaheiraFriendshipActiveCheck","GLOBAL",0)
+THEN
+RESPONSE #100
+RealSetGlobalTimer("L#JaheiraFriendTimer","GLOBAL",3300)
+SetGlobal("L#JaheiraFriendshipActiveCheck","GLOBAL",1)
+SetGlobal("L#JaheiraFriendshipActive","GLOBAL",2)
+SetGlobal("L#JaheiraFriendTalk25","GLOBAL",1)
+END
+
+////////////////////////////////////////////
+////////////// TIMERED TALKS ///////////////
+////////////////////////////////////////////
+
+//1
+
+IF
+  InParty(Myself)
+	IfValidForPartyDialog(Player1)
+	IfValidForPartyDialog(Myself)
+	CombatCounter(0)
+	!See([ENEMY])
+	!AreaType(DUNGEON)
+	RealGlobalTimerExpired("L#JaheiraFriendTimer","GLOBAL")
+	Global("L#JaheiraFriendshipActive","GLOBAL",2)
+	Global("L#JaheiraFriendTalk25","GLOBAL",1)
+THEN
+	RESPONSE #100
+	  SetGlobal("L#JaheiraFriendTalk25","GLOBAL",2)
+END
+
+IF
+	Global("L#JaheiraFriendTalk25","GLOBAL",2)
+THEN
+	RESPONSE #100
+	  MoveToObject(Player1)
+		StartDialogueNoSet(Player1)
+END
+
+IF
+  InParty(Myself)
+	IfValidForPartyDialog(Player1)
+	IfValidForPartyDialog(Myself)
+	CombatCounter(0)
+	!See([ENEMY])
+	!AreaType(DUNGEON)
+	RealGlobalTimerExpired("L#JaheiraFriendTimer","GLOBAL")
+	Global("L#JaheiraFriendshipActive","GLOBAL",2)
+	Global("L#JaheiraFriendTalk25","GLOBAL",3)
+THEN
+	RESPONSE #100
+	  RealSetGlobalTimer("L#JaheiraFriendTimer","GLOBAL",3300)
+	  SetGlobal("L#JaheiraFriendTalk25","GLOBAL",4)
+END
+
+//2
+
+IF
+  InParty(Myself)
+	IfValidForPartyDialog(Player1)
+	IfValidForPartyDialog(Myself)
+	CombatCounter(0)
+	!See([ENEMY])
+	!AreaType(DUNGEON)
+	RealGlobalTimerExpired("L#JaheiraFriendTimer","GLOBAL")
+	Global("L#JaheiraFriendshipActive","GLOBAL",2)
+	Global("L#JaheiraFriendTalk25","GLOBAL",4)
+THEN
+	RESPONSE #100
+	  SetGlobal("L#JaheiraFriendTalk25","GLOBAL",5)
+END
+
+IF
+	Global("L#JaheiraFriendTalk25","GLOBAL",5)
+THEN
+	RESPONSE #100
+	  MoveToObject(Player1)
+		StartDialogueNoSet(Player1)
+END
+
+IF
+  InParty(Myself)
+	IfValidForPartyDialog(Player1)
+	IfValidForPartyDialog(Myself)
+	CombatCounter(0)
+	!See([ENEMY])
+	!AreaType(DUNGEON)
+	RealGlobalTimerExpired("L#JaheiraFriendTimer","GLOBAL")
+	Global("L#JaheiraFriendshipActive","GLOBAL",2)
+	Global("L#JaheiraFriendTalk25","GLOBAL",6)
+THEN
+	RESPONSE #100
+	  RealSetGlobalTimer("L#JaheiraFriendTimer","GLOBAL",3300)
+	  SetGlobal("L#JaheiraFriendTalk25","GLOBAL",7)
+END
+
+//3
+
+IF
+  InParty(Myself)
+	IfValidForPartyDialog(Player1)
+	IfValidForPartyDialog(Myself)
+	CombatCounter(0)
+	!See([ENEMY])
+	!AreaType(DUNGEON)
+	RealGlobalTimerExpired("L#JaheiraFriendTimer","GLOBAL")
+	Global("L#JaheiraFriendshipActive","GLOBAL",2)
+	Global("L#JaheiraFriendTalk25","GLOBAL",7)
+THEN
+	RESPONSE #100
+	  SetGlobal("L#JaheiraFriendTalk25","GLOBAL",8)
+END
+
+IF
+	Global("L#JaheiraFriendTalk25","GLOBAL",8)
+THEN
+	RESPONSE #100
+	  MoveToObject(Player1)
+		StartDialogueNoSet(Player1)
+END
+
+////////////////////////////////////////////
+////////////// SCENERY TALKS ///////////////
+////////////////////////////////////////////
+
+//SARADUSH DESTROYED
+
+IF
+  InParty(Myself)
+	IfValidForPartyDialog(Player1)
+	IfValidForPartyDialog(Myself)
+	CombatCounter(0)
+	!See([ENEMY])
+	See(Player1)
+	PartyRested()
+	Global("SaradushSacked","GLOBAL",1)
+	!Global("L#JaheiraFriendshipActive","GLOBAL",3)
+	Global("L#JaheiraFriendSaradush","GLOBAL",0)
+THEN
+	RESPONSE #100
+	  SetGlobal("L#JaheiraFriendSaradush","GLOBAL",1)
+END
+
+IF
+	Global("L#JaheiraFriendSaradush","GLOBAL",1)
+THEN
+	RESPONSE #100
+		StartDialogueNoSet(Player1)
+END
+
+//AMKETHRAN
+
+IF
+  InParty(Myself)
+	IfValidForPartyDialog(Player1)
+	IfValidForPartyDialog(Myself)
+	CombatCounter(0)
+	!See([ENEMY])
+	See(Player1)
+	AreaCheck("AR5500")
+	Global("L#JaheiraFriendshipActive","GLOBAL",2)
+	Global("L#JaheiraFriendAmketh","GLOBAL",0)
+THEN
+	RESPONSE #100
+	  RealSetGlobalTimer("L#JaheiraFriendTimerAmk","GLOBAL",180)
+	  SetGlobal("L#JaheiraFriendAmketh","GLOBAL",1)
+END
+
+IF
+  InParty(Myself)
+	IfValidForPartyDialog(Player1)
+	IfValidForPartyDialog(Myself)
+	CombatCounter(0)
+	!See([ENEMY])
+	See(Player1)
+	AreaCheck("AR5500")
+	Global("L#JaheiraFriendshipActive","GLOBAL",2)
+	RealGlobalTimerExpired("L#JaheiraFriendTimerAmk","GLOBAL")
+	Global("L#JaheiraFriendAmketh","GLOBAL",1)
+THEN
+	RESPONSE #100
+	  SetGlobal("L#JaheiraFriendAmketh","GLOBAL",2)
+END
+
+IF
+	Global("L#JaheiraFriendAmketh","GLOBAL",2)
+THEN
+	RESPONSE #100
+		StartDialogueNoSet(Player1)
+END
+
+//CHALLANGES DONE
+
+IF
+InParty(Myself)
+CombatCounter(0)
+!See([ENEMY])
+See(Player1)
+!StateCheck("JAHEIRA",CD_STATE_NOTVALID)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+Global("L#JaheiraToBCHDONE","GLOBAL",0)
+Global("ChallengesDone","GLOBAL",1)
+THEN
+RESPONSE #100
+SetGlobal("L#JaheiraToBCHDONE","GLOBAL",1)
+END
+
+IF
+Global("L#JaheiraToBCHDONE","GLOBAL",1)
+THEN
+RESPONSE #100
+StartDialogueNoSet(Player1)
+END

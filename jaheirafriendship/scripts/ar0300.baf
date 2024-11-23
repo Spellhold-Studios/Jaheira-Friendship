@@ -1,0 +1,8 @@
+IF
+Global("LyrosSpawn","GLOBAL",1)
+Global("L#JaheiraReactionRenfeldCh","GLOBAL",0)
+THEN
+RESPONSE #100
+SetGlobal("L#JaheiraReactionRenfeldCh","GLOBAL",1)
+SetGlobalTimer("L#JaheiraReactionRenfeldTime","GLOBAL",6)
+END
