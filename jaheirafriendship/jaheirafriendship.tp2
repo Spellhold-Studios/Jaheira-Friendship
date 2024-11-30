@@ -1,6 +1,6 @@
 BACKUP ~JaheiraFriendship/backup~
 AUTHOR ~Lava Del'Vortel~
-VERSION ~v1.0~
+VERSION ~v1.1~
 README ~JaheiraFriendship/JaheiraFriendship-readme-%LANGUAGE%.html~ ~JaheiraFriendship/JaheiraFriendship-readme-english.html~
 
 AUTO_TRA ~JaheiraFriendship/translations/%s~
