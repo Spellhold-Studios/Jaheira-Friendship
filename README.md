@@ -4,7 +4,7 @@
 [![Views](https://badges.pufler.dev/visits/Spellhold-Studios/Jaheira-Friendship?label=views&color=%2392403a)](https://github.com/Spellhold-Studios/Jaheira-Friendship/releases)
 [![Platform](https://img.shields.io/badge/platform-Windows%20%a0%20macOS%20%a0%20Linux%20%a0%20Project%20Infinity-%2392403a)](https://github.com/Spellhold-Studios/Jaheira-Friendship/releases)
 [![Games](https://img.shields.io/badge/games-BG2%20%a0%20BGT%20%a0%20BG2%3AEE%20%a0%20EET-%2392403a)](https://github.com/Spellhold-Studios/Jaheira-Friendship/releases)
-[![Language](https://img.shields.io/badge/language-en-%2392403a)](https://github.com/Spellhold-Studios/Jaheira-Friendship/releases)
+[![Language](https://img.shields.io/badge/language-en%20%a0%20ru-%2392403a)](https://github.com/Spellhold-Studios/Jaheira-Friendship/releases)
 
 <!--
 Badges white space separator: %20%a0%20
@@ -52,3 +52,11 @@ This mod adds a series of dialogues with Jaheira.
 
 - Llewren
 - Isewein
+
+**Contributors**  
+
+- skellytz &nbsp;&ndash;&nbsp; maintenance (versions 1.0&ndash;1.3)
+
+**Translators**  
+
+- **Russian**:&nbsp; Austin
