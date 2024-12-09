@@ -32,8 +32,13 @@ END
 AUTO_TRA ~%tra_location%/%s~
 
 LANGUAGE ~English~
-         ~English~
+         ~english~
          ~JaheiraFriendship/translations/english/setup.tra~
+
+LANGUAGE ~Russian (translation by Austin)~
+         ~russian~
+         ~JaheiraFriendship/translations/english/setup.tra~
+         ~JaheiraFriendship/translations/russian/setup.tra~
 
 BEGIN @1
 DESIGNATED 0 LABEL ~jaheira_friendship~
